@@ -12,7 +12,7 @@ class Api::V1::AuctionsController < ApplicationController
 
     def create
         auction = Auction.new params.require(:auction).permit(:title, :description)
-
+        auction.user = current_user
         if auction.save
            render json: { id: auction.id } 
         else

@@ -9,6 +9,32 @@
 
 Auction.destroy_all
 Bid.destroy_all
+User.delete_all
+
+NUM_USER = 10
+PASSWORD = 'shurooq20'
+
+
+super_user = User.create(
+    first_name: 'jon',
+    last_name: 'snow',
+    email: 'js@winterfell.gov',
+    password: PASSWORD
+)
+
+NUM_USER.times do
+    first_name = Faker::Name.first_name
+    last_name = Faker::Name.last_name
+    User.create(
+        first_name: first_name,
+        last_name: last_name,
+        email: Faker::Internet.email,
+        password: PASSWORD
+    )
+end
+
+
+users = User.all 
 
 50.times do 
     a = Auction.create({
@@ -16,6 +42,7 @@ Bid.destroy_all
         description: Faker::Hacker.say_something_smart,
         date: Faker::Date.forward(days: 365*1),
         price: Faker::Number.between(from:10, to:99),
+        user: users.sample,
     })
 
     if a.valid? 
@@ -23,6 +50,7 @@ Bid.destroy_all
             Bid.create(
                 title: Faker::Number.between(from:10, to:99),
                 auction: a,
+                user: users.sample,
                 
             )
         end
@@ -32,3 +60,4 @@ end
 
 puts Cowsay.say("Generated #{Auction.count} Auctionss", :frogs)
 puts Cowsay.say("Generated #{Bid.count} Bids", :cow)
+puts Cowsay.say("Created #{users.count}  users", :dragon)
