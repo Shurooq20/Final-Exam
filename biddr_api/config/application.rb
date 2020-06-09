@@ -21,8 +21,16 @@ Bundler.require(*Rails.groups)
 
 module BiddrApi
   class Application < Rails::Application
-    # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
+    config.generators.system_tests = nil
+
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins 'localhost:5500', '127.0.0.1:5500', 'localhost:8080', '127.0.0.1:8080'
+        resource '/api/*', headers: :any, credentials: true, methods: [:get, :post, :update, :destroy, :options]
+      end
+    end
+    # Initialize configuration defaults for originally generated Rails version.
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
@@ -30,6 +38,5 @@ module BiddrApi
     # the framework and any gems in your application.
 
     # Don't generate system test files.
-    config.generators.system_tests = nil
   end
 end

@@ -1,7 +1,8 @@
-class Api::V1::SessionsController < ApplicationController
+class Api::V1::SessionsController < Api::ApplicationController
 
     def create
-        user = User.find_by_email params[:email]
+    
+        user = User.find_by(email: params[:email])
         if user&.authenticate params[:password]
             session[:user_id] = user.id
             render json: { id: user.id }
@@ -19,5 +20,5 @@ class Api::V1::SessionsController < ApplicationController
     def current
         render(json: current_user)
     end
-    
+
 end

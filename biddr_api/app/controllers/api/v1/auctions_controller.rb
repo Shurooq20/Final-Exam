@@ -1,4 +1,6 @@
-class Api::V1::AuctionsController < ApplicationController
+class Api::V1::AuctionsController < Api::ApplicationController
+
+    before_action :authenticate_user!, only: [:create, :update, :destroy]
 
     def index
         auctions = Auction.all.order('created_at DESC')

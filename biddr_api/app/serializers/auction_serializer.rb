@@ -27,4 +27,4 @@ class ProductSerializer < ActiveModel::Serializer
         :title
       )
     end
-  end
+end
