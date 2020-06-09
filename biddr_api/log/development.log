@@ -9757,3 +9757,118 @@ Processing by Api::V1::AuctionsController#show as JSON
 Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 0.2ms | Allocations: 954)
 
 
+Started GET "/api/v1/auctions/164" for ::1 at 2020-06-08 19:39:10 -0700
+Processing by Api::V1::AuctionsController#show as JSON
+  Parameters: {"id"=>"164"}
+  [1m[36mAuction Load (1.6ms)[0m  [1m[34mSELECT "auctions".* FROM "auctions" WHERE "auctions"."id" = $1 LIMIT $2[0m  [["id", 164], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auctions_controller.rb:11:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Auction (0.46ms)
+Completed 200 OK in 8ms (Views: 1.2ms | ActiveRecord: 2.1ms | Allocations: 1116)
+
+
+Started GET "/api/v1/auctions" for ::1 at 2020-06-08 19:39:19 -0700
+Processing by Api::V1::AuctionsController#index as JSON
+  [1m[36mAuction Load (0.7ms)[0m  [1m[34mSELECT "auctions".* FROM "auctions" ORDER BY created_at DESC[0m
+  ↳ app/controllers/api/v1/auctions_controller.rb:7:in `index'
+No serializer found for resource: #<Auction id: 201, title: "program", description: "We need to hack the wireless RAM circuit!", created_at: "2020-06-08 19:08:36", updated_at: "2020-06-08 19:08:36", date: "2020-10-20", price: 76, user_id: 28>
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Auction::ActiveRecord_Relation (7.86ms)
+Completed 200 OK in 14ms (Views: 12.8ms | ActiveRecord: 0.7ms | Allocations: 8308)
+
+
+Started GET "/api/v1/auctions" for ::1 at 2020-06-08 19:42:39 -0700
+Processing by Api::V1::AuctionsController#index as JSON
+  [1m[36mAuction Load (0.9ms)[0m  [1m[34mSELECT "auctions".* FROM "auctions" ORDER BY created_at DESC[0m
+  ↳ app/controllers/api/v1/auctions_controller.rb:7:in `index'
+No serializer found for resource: #<Auction id: 201, title: "program", description: "We need to hack the wireless RAM circuit!", created_at: "2020-06-08 19:08:36", updated_at: "2020-06-08 19:08:36", date: "2020-10-20", price: 76, user_id: 28>
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Auction::ActiveRecord_Relation (11.62ms)
+Completed 200 OK in 27ms (Views: 23.9ms | ActiveRecord: 0.9ms | Allocations: 8305)
+
+
+Started POST "/api/v1/session" for ::1 at 2020-06-08 19:42:52 -0700
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"email"=>"js@winterfell.gov", "password"=>"[FILTERED]", "session"=>{"email"=>"js@winterfell.gov", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (5.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "js@winterfell.gov"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:5:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.21ms)
+Completed 200 OK in 230ms (Views: 2.7ms | ActiveRecord: 11.6ms | Allocations: 5695)
+
+
+Started GET "/api/v1/auctions" for ::1 at 2020-06-08 19:43:32 -0700
+Processing by Api::V1::AuctionsController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mAuction Load (0.3ms)[0m  [1m[34mSELECT "auctions".* FROM "auctions" ORDER BY created_at DESC[0m
+  ↳ app/controllers/api/v1/auctions_controller.rb:7:in `index'
+No serializer found for resource: #<Auction id: 201, title: "program", description: "We need to hack the wireless RAM circuit!", created_at: "2020-06-08 19:08:36", updated_at: "2020-06-08 19:08:36", date: "2020-10-20", price: 76, user_id: 28>
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Auction::ActiveRecord_Relation (7.53ms)
+Completed 200 OK in 14ms (Views: 12.6ms | ActiveRecord: 0.7ms | Allocations: 8990)
+
+
+Started GET "/api/v1/auctions/198" for ::1 at 2020-06-08 19:43:33 -0700
+Processing by Api::V1::AuctionsController#show as JSON
+  Parameters: {"id"=>"198"}
+  [1m[36mAuction Load (0.3ms)[0m  [1m[34mSELECT "auctions".* FROM "auctions" WHERE "auctions"."id" = $1 LIMIT $2[0m  [["id", 198], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auctions_controller.rb:11:in `show'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Auction (0.46ms)
+Completed 200 OK in 5ms (Views: 2.8ms | ActiveRecord: 0.7ms | Allocations: 1641)
+
+
+Started GET "/api/v1/auctions" for ::1 at 2020-06-08 19:43:41 -0700
+Processing by Api::V1::AuctionsController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mAuction Load (0.5ms)[0m  [1m[34mSELECT "auctions".* FROM "auctions" ORDER BY created_at DESC[0m
+  ↳ app/controllers/api/v1/auctions_controller.rb:7:in `index'
+No serializer found for resource: #<Auction id: 201, title: "program", description: "We need to hack the wireless RAM circuit!", created_at: "2020-06-08 19:08:36", updated_at: "2020-06-08 19:08:36", date: "2020-10-20", price: 76, user_id: 28>
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Auction::ActiveRecord_Relation (9.55ms)
+Completed 200 OK in 17ms (Views: 15.7ms | ActiveRecord: 0.8ms | Allocations: 8988)
+
+
+Started GET "/api/v1/auctions" for ::1 at 2020-06-08 19:43:44 -0700
+Processing by Api::V1::AuctionsController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mAuction Load (0.5ms)[0m  [1m[34mSELECT "auctions".* FROM "auctions" ORDER BY created_at DESC[0m
+  ↳ app/controllers/api/v1/auctions_controller.rb:7:in `index'
+No serializer found for resource: #<Auction id: 201, title: "program", description: "We need to hack the wireless RAM circuit!", created_at: "2020-06-08 19:08:36", updated_at: "2020-06-08 19:08:36", date: "2020-10-20", price: 76, user_id: 28>
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Auction::ActiveRecord_Relation (7.21ms)
+Completed 200 OK in 13ms (Views: 12.0ms | ActiveRecord: 0.8ms | Allocations: 8985)
+
+
+Started GET "/api/v1/auctions" for ::1 at 2020-06-08 19:43:47 -0700
+Processing by Api::V1::AuctionsController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mAuction Load (0.3ms)[0m  [1m[34mSELECT "auctions".* FROM "auctions" ORDER BY created_at DESC[0m
+  ↳ app/controllers/api/v1/auctions_controller.rb:7:in `index'
+No serializer found for resource: #<Auction id: 201, title: "program", description: "We need to hack the wireless RAM circuit!", created_at: "2020-06-08 19:08:36", updated_at: "2020-06-08 19:08:36", date: "2020-10-20", price: 76, user_id: 28>
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Auction::ActiveRecord_Relation (6.21ms)
+Completed 200 OK in 11ms (Views: 10.3ms | ActiveRecord: 0.6ms | Allocations: 8978)
+
+
+Started GET "/api/v1/auctions" for ::1 at 2020-06-08 19:43:52 -0700
+Processing by Api::V1::AuctionsController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mAuction Load (0.4ms)[0m  [1m[34mSELECT "auctions".* FROM "auctions" ORDER BY created_at DESC[0m
+  ↳ app/controllers/api/v1/auctions_controller.rb:7:in `index'
+No serializer found for resource: #<Auction id: 201, title: "program", description: "We need to hack the wireless RAM circuit!", created_at: "2020-06-08 19:08:36", updated_at: "2020-06-08 19:08:36", date: "2020-10-20", price: 76, user_id: 28>
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Auction::ActiveRecord_Relation (6.9ms)
+Completed 200 OK in 13ms (Views: 11.7ms | ActiveRecord: 0.6ms | Allocations: 8986)
+
+
+Started GET "/api/v1/auctions/188" for ::1 at 2020-06-08 19:43:53 -0700
+Processing by Api::V1::AuctionsController#show as JSON
+  Parameters: {"id"=>"188"}
+  [1m[36mAuction Load (0.4ms)[0m  [1m[34mSELECT "auctions".* FROM "auctions" WHERE "auctions"."id" = $1 LIMIT $2[0m  [["id", 188], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auctions_controller.rb:11:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Auction (0.43ms)
+Completed 200 OK in 4ms (Views: 2.1ms | ActiveRecord: 0.5ms | Allocations: 1633)
+
+

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import AuctionIndexPage from '../AuctionIndexPage';
 import AuctionShowPage from '../AuctionShowPage';
+import SignInPage from '../SignInPage';
 import { User } from '../../requests';
 import NavBar from '../NavBar';
 import WelcomePage from '../WelcomePage';
@@ -38,6 +39,7 @@ class App extends Component {
                 <Route path='/auctions' exact component={ AuctionIndexPage }/>
                 {/* <Route path='/products/new' component={ NewProductPage } /> */}
                 <Route path='/auctions/:id' component={ AuctionShowPage } />
+                <Route path="/sign_in" component={SignInPage} />  
                 </Switch>    
                 </main>
             </BrowserRouter>
